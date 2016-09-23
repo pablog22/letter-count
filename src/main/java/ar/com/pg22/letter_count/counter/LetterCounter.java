@@ -34,7 +34,13 @@ public class LetterCounter {
 	}
 	
 	public int getLetterCount(String letter) {
-		return letterMap.getCount(letter).intValue();
+		String key = (this.ignoreCase) ? letter.toUpperCase() : letter;
+		Integer value = letterMap.getCount(key);
+		if (value == null) {
+			return 0;
+		} else {
+			return value.intValue();
+		}
 	}
 
 }
